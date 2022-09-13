@@ -27,6 +27,9 @@ jobs:
       # Runs a single command using the runners shell
       - name: Build
         run: make
+        
+      - name: Build STLink
+        run: make PROBE_HOST=stlink ST_BOOTLOADER=1
 
       - name: Archive firmware build artifacts as a zip
         uses: actions/upload-artifact@v2.2.4
