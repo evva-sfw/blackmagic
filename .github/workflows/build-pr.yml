@@ -36,3 +36,9 @@ jobs:
 
       - name: Build PC hosted binary
         run: make PROBE_HOST=hosted 
+
+      - name: Clean
+        run: make clean
+
+      - name: Build STLink binary
+        run: make PROBE_HOST=stlink ST_BOOTLOADER=1
