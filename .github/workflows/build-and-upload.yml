@@ -37,3 +37,16 @@ jobs:
           name: blackmagic-firmware-StLink.zip
           path: src/blackmagic*
           if-no-files-found: error
+
+      - name: Clean
+        run: make clean
+        
+      - name: Build STLink
+        run: make PROBE_HOST=stlink
+
+      - name: Archive firmware build artifacts as a zip
+        uses: actions/upload-artifact@v2.2.4
+        with:
+          name: blackmagic-firmware-StLink_noBootloaderFlag.zip
+          path: src/blackmagic*
+          if-no-files-found: error
