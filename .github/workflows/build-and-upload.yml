@@ -19,7 +19,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       # Use embedded toolchain
       - uses: numworks/setup-arm-toolchain@2020-q4
@@ -32,7 +32,7 @@ jobs:
         run: make PROBE_HOST=stlink ST_BOOTLOADER=1
 
       - name: Archive firmware build artifacts as a zip
-        uses: actions/upload-artifact@v2.2.4
+        uses: actions/upload-artifact@v4
         with:
           name: blackmagic-firmware-StLink.zip
           path: src/blackmagic*
@@ -45,7 +45,7 @@ jobs:
         run: make PROBE_HOST=stlink
 
       - name: Archive firmware build artifacts as a zip
-        uses: actions/upload-artifact@v2.2.4
+        uses: actions/upload-artifact@v4
         with:
           name: blackmagic-firmware-StLink_noBootloaderFlag.zip
           path: src/blackmagic*
